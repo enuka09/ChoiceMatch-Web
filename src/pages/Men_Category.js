@@ -1,10 +1,13 @@
 import React from 'react';
+import Meta from "../components/Meta";
+import BreadCrumb from "../components/BreadCrumb";
 
 const Men_Category = () => {
   return (
-    <div className="test">
-      Men_Category
-    </div>
+      <>
+          <Meta title={"CHOICE MATCH | Men"}/>
+          <BreadCrumb title="Men"/>
+      </>
   );
 };
 

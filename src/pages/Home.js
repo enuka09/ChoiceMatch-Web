@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,11 +12,12 @@ import {
     BsStarFill
 } from 'react-icons/bs';
 import {Link} from "react-router-dom";
+import ProductCard from "../components/ProductCard";
 
 const NextArrow = (props) => {
     const {style, onClick} = props;
     return (
-        <div
+        <div className="slider-arrow"
             style={{
                 ...style,
                 display: "block",
@@ -36,7 +37,7 @@ const NextArrow = (props) => {
 const PrevArrow = (props) => {
     const {style, onClick} = props;
     return (
-        <div
+        <div  className="slider-arrow"
             style={{
                 ...style,
                 display: "block",
@@ -54,20 +55,55 @@ const PrevArrow = (props) => {
 };
 
 const Home = () => {
-    const settings = {
+    const bannerSettings = {
         nextArrow: <NextArrow/>,
         prevArrow: <PrevArrow/>,
-        autoplay: true, //
-        autoplaySpeed: 3000, //
+        autoplay: true,
+        autoplaySpeed: 3000,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
     };
+
+    const [currentBrandIndex, setCurrentBrandIndex] = useState(0);
+
+    const brandsCount = 5;
+
+    const nextBrand = () => {
+        setCurrentBrandIndex((currentBrandIndex + 1) % brandsCount);
+    }
+
+    const prevBrand = () => {
+        setCurrentBrandIndex((currentBrandIndex - 1 + brandsCount) % brandsCount);
+    }
 
     return (
         <>
             {/*  Main Banner */}
             <section className="main-banner-outer">
                 <div className="main-banner-inner" style={{position: 'relative'}}>
-                    <Slider {...settings}>
-                        <div className="main-banner">
+                    <Slider {...bannerSettings} className="main-banner-slider">
+                    <div className="main-banner">
                             <img src="/images/banners/main-banner-01.png" alt="Banner 1" style={{width: '100%'}}/>
                         </div>
                         <div className="main-banner">
@@ -81,7 +117,7 @@ const Home = () => {
             </section>
             {/* Main Banner Ends Here */}
 
-            {/*  Icon Container */}
+              {/*Icon Container */}
             <section className="services">
                 <div className="services-outer">
                     <div className="service">
@@ -120,31 +156,31 @@ const Home = () => {
                     <h2 className="section-topic">Main Categories</h2>
                     <div className="section-row">
                         <div className="category-box">
-                            <a href="#">
+                            <Link to="/women-category">
                                 <img src="/images/category-types/women-category.png" alt="Women"/>
                                 <div className="category-info">
                                     <h6>Women Collection</h6>
                                     <p className="shop-now">Shop Now</p>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                         <div className="category-box">
-                            <a href="#">
+                            <Link to="/men-category">
                                 <img src="/images/category-types/men-category.png" alt="Men"/>
                                 <div className="category-info">
                                     <h6>Men Collection</h6>
                                     <p className="shop-now">Shop Now</p>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                         <div className="category-box">
-                            <a href="#">
+                            <Link to="/kids-category">
                                 <img src="/images/category-types/kids-category.png" alt="Men"/>
                                 <div className="category-info">
                                     <h6>Kids Collection</h6>
                                     <p className="shop-now">Shop Now</p>
                                 </div>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -152,55 +188,19 @@ const Home = () => {
             {/* Main Category Section Ends Here */}
 
             {/* New Arrival Products Section   */}
-            <div className="new-arrival-section">
+            <section className="new-arrival-section">
                 <div className="new-arrival-inner">
                     <h2 className="section-topic">New Arrivals</h2>
                     <button className="view-all-button">View All</button>
-                    <div className="new-arrival-row">
-                        <div className="new-item-box">
-                            <a href="#">
-                                <img src="/images/new-arrivals/new-arrival-9-a.png" alt="new-arrival"/>
-                                <div className="new-item-info">
-                                    <p className="item-category">Women</p>
-                                    <p className="new-item-name">HUF & DEE Women's T- Shirt</p>
-                                    <p className="new-item-price">LKR 2,650.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div className="new-item-box">
-                            <a href="#">
-                                <img src="/images/new-arrivals/new-arrival-2-a.png" alt="new-arrival"/>
-                                <div className="new-item-info">
-                                    <p className="item-category">Women</p>
-                                    <p className="new-item-name">HUF & DEE Ladies Crew Neck T-Shirt</p>
-                                    <p className="new-item-price">LKR 1,550.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div className="new-item-box">
-                            <a href="#">
-                                <img src="/images/new-arrivals/new-arrival-8-a.png" alt="new-arrival"/>
-                                <div className="new-item-info">
-                                    <p className="item-category">Men</p>
-                                    <p className="new-item-name">DEEDAT Crew Neck T-Shirt</p>
-                                    <p className="new-item-price">LKR 3,450.00</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div className="new-item-box">
-                            <a href="#">
-                                <img src="/images/new-arrivals/new-arrival-10-a.png" alt="new-arrival"/>
-                                <div className="new-item-info">
-                                    <p className="item-category">Women</p>
-                                    <p className="new-item-name">HUF & DEE Ladies Crew Neck T-Shirt</p>
-                                    <p className="new-item-price">LKR 1,490.00</p>
-                                </div>
-                            </a>
-                        </div>
+                        <div className="row">
+                            <ProductCard/>
+                            <ProductCard/>
+                            <ProductCard/>
+                            <ProductCard/>
                     </div>
                 </div>
-            </div>
-            {/* New Arrival Products Section Ends Here   */}
+            </section>
+             {/*New Arrival Products Section Ends Here   */}
 
             {/*  Advertisement Banner */}
             <div className="fashion-recommender-banner">
@@ -288,36 +288,19 @@ const Home = () => {
                 <div className="brand-section-inner">
                     <h2 className="section-topic">Our brands</h2>
                     <div className="brand-section-row">
-                        <div className="brand-box">
-                            <a href="#">
-                                <img src="/images/brands/brand-1.png" alt="Women"/>
-                            </a>
-                        </div>
-                        <div className="brand-box">
-                            <a href="#">
-                                <img src="/images/brands/brand-2.png" alt="Men"/>
-                            </a>
-                        </div>
-                        <div className="brand-box">
-                            <a href="#">
-                                <img src="/images/brands/brand-3.png" alt="Men"/>
-                            </a>
-                        </div>
-                        <div className="brand-box">
-                            <a href="#">
-                                <img src="/images/brands/brand-4.png" alt="Men"/>
-                            </a>
-                        </div>
-                        <div className="brand-box">
-                            <a href="#">
-                                <img src="/images/brands/brand-5.png" alt="Men"/>
-                            </a>
-                        </div>
+                        {Array.from({ length: brandsCount }).map((_, index) => (
+                            <div className={`brand-box ${index === currentBrandIndex ? 'active' : ''}`} key={index}>
+                                <a href="#">
+                                    <img src={`/images/brands/brand-${index + 1}.png`} alt={`Brand ${index + 1}`} />
+                                </a>
+                            </div>
+                        ))}
+                       <div className="prev" onClick={prevBrand}>&#8592;</div>
+                    <div className="next" onClick={nextBrand}>&#8594;</div>
                     </div>
                 </div>
             </div>
             {/* Brand Section Ends Here */}
-
         </>
     );
 };

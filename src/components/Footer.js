@@ -6,14 +6,14 @@ const Footer = () => {
         <>
             <footer className="footer">
                 <div className="footer-container">
-                    <div className="row">
+                    <div className="row footer-row">
                         <div className="col-md-3">
                             <img src="/images/banners/main-logo.png" alt="Logo" className="footer-logo mb-3"/>
                             <p>Discover the latest in fashion with CHOICE MATCH! Our online store features AI-powered
                                 recommendations, personalizing your shopping experience and helping you find the perfect
                                 style. Elevate your wardrobe with us</p>
                         </div>
-                        <div className="col-md-3" style={{paddingLeft: '100px'}}>
+                        <div className="col-md-3">
                             <h6>Information</h6>
                             <ul className="footer-links">
                                 <li><a href="#">About Us</a></li>
@@ -23,7 +23,7 @@ const Footer = () => {
                                 <li><a href="#">FAQs</a></li>
                             </ul>
                         </div>
-                        <div className="col-md-3" style={{paddingLeft: '70px'}}>
+                        <div className="col-md-3">
                             <h6>Find it fast</h6>
                             <ul className="footer-links">
                                 <li><a href="#">Women Series</a></li>
