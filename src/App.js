@@ -13,6 +13,8 @@ import CompetitionSubmission from './pages/CompetitionSubmission';
 import Single_Product_Detail from "./pages/Single_Product_Detail";
 import Detailed_Cart from "./pages/Detailed_Cart";
 import Checkout from "./pages/Checkout";
+import FashionRecommendation from "./pages/FashionRecommendation";
+
 
 
 
@@ -33,6 +35,7 @@ function App() {
                         <Route path="single-product-detail" element={<Single_Product_Detail/>} />
                         <Route path="detailed-cart" element={<Detailed_Cart/>} />
                         <Route path="checkout" element={<Checkout/>} />
+                        <Route path="fashion-recommender" element={<FashionRecommendation/>} />
                     </Route>
                 </Routes>
             </BrowserRouter>

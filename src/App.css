@@ -1570,9 +1570,70 @@ td {
     font-size: 16px;
     margin-top: 10px;
 }
-
 /* Checkout page Ends here */
 
+/* Fashion Recommender */
+.fashion-container {
+    width: 100%;
+    /*max-width: 600px;*/
+    /*margin: 40px auto;*/
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.fashion-input {
+    margin-bottom: 20px;
+}
+
+.fashion-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.fashion-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.fashion-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.fashion-btn:hover {
+    background-color: #0056b3;
+}
+
+.fashion-output {
+    margin-top: 20px;
+}
+
+.fashion-pair {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.fashion-image {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* Fashion Recommender Ends Here */
 
 /* Footer Section Starts Here */
 .footer {

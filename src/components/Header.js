@@ -204,7 +204,7 @@ const Header = () => {
                                         <a className="nav-link" href="discount-items">Deals</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link frs-badge" href="detailed-cart">Fashion Recommender</a>
+                                        <a className="nav-link frs-badge" href="fashion-recommender">Fashion Recommender</a>
                                     </li>
                                 </ul>
                             </div>
